@@ -1,0 +1,17 @@
+body {
+    margin:0;
+    background-color: burlywood;
+    font-family: sans-serif;
+}
+table{
+    padding: auto;
+    border: 3px;
+    border-style: dashed;
+}
+tr{
+    text-align: center;
+    background-color: aqua;
+    border: 3px;
+    border-style: dashed;
+    height: 25px;
+}

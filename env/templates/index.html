@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>Kauppalista</h1>
+    <table>
+        <tr>
+            <th>Tuote</th>
+            <th>Lisätty</th>
+            <th>Toiminnot</th>
+        </tr>
+        {% for tuote in tuotteet %}
+            <tr>
+                <th>{{ tuote.content }}</th>
+                <th>{{ tuote.date.date() }}</th>
+                <th>
+                    <a href="/poista/{{ tuote.id }}">Poista</a>
+                    <br>
+                    <a href="/paivita/{{tuote.id}}">Muokkaa</a>
+                </th>
+            </tr>
+        {% endfor %}
+    </table>
+    <form action="/" method="POST">
+        <input type="text" name="content">
+        <input type="submit" value="Lisää">
+    </form>
+</div>
+{% endblock %}
