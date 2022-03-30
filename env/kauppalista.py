@@ -54,3 +54,8 @@ def paivita(id):
         return render_template('update.html', tuote=paivitettava)
 if __name__=="__main__":
     app.run(debug=True)
+
+
+
+
+# git
