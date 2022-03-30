@@ -1,1 +1,1 @@
-web: gunicorn env/kauppalista:app
+web: gunicorn kauppalista:app
