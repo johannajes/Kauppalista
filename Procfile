@@ -1,2 +1,1 @@
-web: gunicorn kauppalista:app
-web: gunicorn run:app
+web: sh -c 'cd ./env/ && gunicorn kauppalista:app'
