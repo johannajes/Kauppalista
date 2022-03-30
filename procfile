@@ -1,1 +1,1 @@
-web: gunicorn kauppalista:kauppalista
+web: gunicorn kauppalista:kauppalista-j
