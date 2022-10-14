@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import json
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///testi.db'
@@ -14,7 +15,16 @@ class Lista(db.Model):
     def __repr__(self):
         return 'Tuote %r' % self.id
 
-
+@app.route('/lisaatuote', methods=['POST'])
+def lisäätuote():
+    uusituote=request.get_json(force=True)
+    new_item=Lista(content=uusituote['tuote'])
+    try:
+        db.session.add(new_item)
+        db.session.commit()
+        return redirect ('/')
+    except:
+        return 'Lisäys ei onnistunut'
 @app.route('/', methods=['POST','GET'])
 def index():
     if request.method=='POST':
